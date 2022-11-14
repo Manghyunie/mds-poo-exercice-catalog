@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Models\Movie;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,10 @@ Route::get('/', function () {
 
     return view('home', ['movies' => $movies]);
 });
+
+Route::get('movies', function (Request $request){
+dd($request);
+});
+
+Route::get('/movies', [MovieController::class, 'list']);
+Route::get('/movies/{id}', [MovieController::class, 'show']);
