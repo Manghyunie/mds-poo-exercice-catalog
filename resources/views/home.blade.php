@@ -21,13 +21,22 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
+        .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
     </style>
 </head>
 <body>
+    
     <div class="container">
         <h1>{{ config('app.name') }}</h1>
-
-        <div class="wrapper">
+        <div>
+<a href="http://127.0.0.1:8000/movies">List is here</a>
+        </div>
+<br>
+        <div class="grid-container">
             @foreach ($movies as $movie)
             <div>
                 <a href="/movies/{{ $movie->id }}">

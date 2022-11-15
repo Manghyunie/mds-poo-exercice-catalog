@@ -20,10 +20,16 @@ Route::get('/', function () {
     $movies = Movie::inRandomOrder()->whereNotNull('poster')->limit(12)->get();
 
     return view('home', ['movies' => $movies]);
+
+    // $genre = Genre::first();
+    // dd($genre->movies);
+    // dd($genre->movies()->paginate(10));
+    // dd($genre->movies()->whereNotNull('poster')->get());
 });
 
+Route::get('genres', [GenreController::class, 'list']);
 Route::get('movies', function (Request $request){
-dd($request);
+//dd($request);
 });
 
 Route::get('/movies', [MovieController::class, 'list']);

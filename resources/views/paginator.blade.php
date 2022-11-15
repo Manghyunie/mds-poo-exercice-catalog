@@ -1,11 +1,11 @@
 <ul class="paginator" style="display:inline">
-    @foreach ($elements[0] as $page => $link)
-    @if ($page == $paginator->currentPage)
-    <li style="text: bold;"> </li>
+    @foreach ($paginator->appends(request()->query())->LinkCollection() as $link)
+    <li style="display:inline; margin: 0rem 0.2rem;">
+        @if ($link['active'])
+        <span style="font-weight: bold;">{!! $link['label'] !!} </span>
         @else
-        <li>       
-    @endif
-        <a href="{{ $link }}">{{ $page }}</a>
-        </li>
+        <a href="{{ $link['url'] }}">{!! $link['label'] !!}</a>
+        @endif
+    </li>
     @endforeach
-    </ul>
+</ul>

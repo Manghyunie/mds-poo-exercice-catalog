@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Http\Request;
@@ -9,9 +10,9 @@ use Illuminate\Pagination\Paginator;
 
 class MovieController extends Controller
 {
-    public function list(Request $request) {
+    public function list($genre) {
         
-        $order_by = $request->query('order_by');
+        $genre = $request->query('order_by');
         $order = $request->query('order', 'asc');
         // dump($request);
         $query = Movie::query();
@@ -34,19 +35,4 @@ class MovieController extends Controller
         //$movies = Movie::limite(20)->get;
         return view('movies_list', ['movies_paginator' => $movies_paginator]);
     }
-
-    public function show($id)
-    {
-        $movie = Movie::where('id', $id)->first();
-
-        //dd($movie->$genres);
-        return view('movies_show', ['movie' => $movie]);
-    }
-
-    
-    // public function random() {
-    //     $movie = Movie::inRandomOrder()->first();
-    //     $movie_id = movie_id;
-    //     return redirect ;
-    // }
 }
