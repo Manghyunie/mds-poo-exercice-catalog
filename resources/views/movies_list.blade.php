@@ -27,8 +27,17 @@
     .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1em;
-  line-height: 200px;
+  grid-gap: 1rem;
+  line-height: 10px;
+}
+
+.list-group-item{
+    width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  background-size: 50px 10px, 60px 10px;
+  background-position: 20px 40px, 20px 60px;
+  background-repeat: no-repeat;
 }
 
 </style>
@@ -38,7 +47,7 @@
             <div class="grid-container">
                 <li class="list-group-item list-group-item-primary">
                 <a class="list-group-item" href="/movies/{{ $movie->id }}">
-                    <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}" weigh="10px">
+                    <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}" weigh="100px" height="100px">
                 </a>
                 <li text-align: "."> {{$movie->averageRating }} </li>
                 {{ $movie->originalTitle }}

@@ -35,6 +35,9 @@
         <div>
 <a href="http://127.0.0.1:8000/movies">List is here</a>
         </div>
+        <div>
+        <a href="">Choose a random film</a>
+        </div>
 <br>
         <div class="grid-container">
             @foreach ($movies as $movie)

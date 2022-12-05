@@ -12,13 +12,7 @@ class MovieController extends Controller
 {
     public function list($genre) {
         
-        $genre = $request->query('order_by');
-        $order = $request->query('order', 'asc');
         // dump($request);
-        $query = Movie::query();
-        if ($order_by != Null) {
-            $query->orderBy($order_by, $order);
-        }
 
         // $orderdate = Movie::where('id')->orderBy('releaseDate', 'asc')->get();
         // /movies?order_by=releaseDate&order=asc
@@ -31,8 +25,8 @@ class MovieController extends Controller
     // }
 
         //Paginator::all();
-        $movies_paginator = Movie::paginate(20);
+        $movies_genre = Movie::paginate(20);
         //$movies = Movie::limite(20)->get;
-        return view('movies_list', ['movies_paginator' => $movies_paginator]);
+        return view('movies_list', ['movies_genre' => $movies_genre]);
     }
 }
